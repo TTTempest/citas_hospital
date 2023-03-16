@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CitaRepositorio extends JpaRepository<Cita, Long> {
-    /*
-    List<Cita> findbyFechaHora(Date fecha);
-     */
+
     Cita findCitaById(long id);
 }

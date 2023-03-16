@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
@@ -15,25 +16,23 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 public class Cita {
     @Column(name = "id",nullable = false,unique = true)
     @Id
-    @SequenceGenerator(name = "id_cita", sequenceName = "id_cita", allocationSize = 1)
-    @GeneratedValue(strategy = SEQUENCE, generator = "id_cita")
-    private long id;
-    @Column(name = "fecha", nullable = false, unique = true)
+    @SequenceGenerator(name = "id_diagnostico", sequenceName = "id_diagnostico", allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE, generator = "id_diagnostico")
+    private Long id;
+    @Column(name = "fechaHora")
     private LocalDate fechaHora;
-    @Column(name="motivoCIta", nullable = false, unique = false)
+    @Column(name="motivoCita")
     private String motivoCita;
-    @Column(name="attribute11", nullable = true, unique = true)
-    private int attribute11;
 
     @OneToOne(optional = true, cascade = CascadeType.ALL)
-    @JoinColumn(name="id_diagnostico", referencedColumnName = "id")
+    @JoinColumn(name="id_diagnostico")
     private Diagnostico diagnostico;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "id_paciente")
     private Paciente paciente;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "id_medico")
     private Medico medico;
 

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DiagnosticoRepositorio extends JpaRepository<Diagnostico, Long> {
+    Diagnostico findDiagById(long id);
 }

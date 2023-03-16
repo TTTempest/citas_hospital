@@ -1,12 +1,13 @@
 package com.hospital.citas_m.DTO;
 
 import com.hospital.citas_m.entities.Diagnostico;
-import jakarta.persistence.Column;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class DiagnosticoDTO {
     private Long id;
 
@@ -14,11 +15,7 @@ public class DiagnosticoDTO {
 
     private String enfermedad;
 
-    public DiagnosticoDTO(Diagnostico diagnostico) {
-        this.id = diagnostico.getId();
-        this.valoracionEspecialidad = diagnostico.getValoracionEspecialidad();
-        this.enfermedad = diagnostico.getEnfermedad();
-    }
+    private CitaDtoRcort cita;
 
 
 }

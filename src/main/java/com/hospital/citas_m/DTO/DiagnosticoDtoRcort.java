@@ -1,6 +1,6 @@
 package com.hospital.citas_m.DTO;
 
-import jakarta.persistence.Column;
+import com.hospital.citas_m.entities.Diagnostico;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,14 +8,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UsuarioDTO{
+public class DiagnosticoDtoRcort {
     private Long id;
 
-    private String nombre;
+    private String valoracionEspecialidad;
 
-    private String apellidos;
+    private String enfermedad;
 
-    private String usuario;
 
-    private String clave;
+
 }

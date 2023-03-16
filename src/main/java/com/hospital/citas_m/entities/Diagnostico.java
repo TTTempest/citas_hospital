@@ -1,6 +1,8 @@
 package com.hospital.citas_m.entities;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +11,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name="diagnostico")
 public class Diagnostico {
 
@@ -16,13 +19,18 @@ public class Diagnostico {
     @Id
     @SequenceGenerator(name = "id_diagnostico", sequenceName = "id_diagnostico", allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "id_diagnostico")
-    private long id;
+    private Long id;
     @Column(name = "valoracionEspecialidad",nullable = false,unique = false)
     private String valoracionEspecialidad;
-    @Column(name = "efermedad",nullable = false,unique = false)
+    @Column(name = "enfermedad",nullable = false,unique = false)
     private String enfermedad;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cita_id")
+    @OneToOne(mappedBy = "diagnostico")
     private Cita cita;
+
+    public Diagnostico(String valoracionEspecialidad, String enfermedad, Cita cita) {
+        this.valoracionEspecialidad = valoracionEspecialidad;
+        this.enfermedad = enfermedad;
+        this.cita = cita;
+    }
 }

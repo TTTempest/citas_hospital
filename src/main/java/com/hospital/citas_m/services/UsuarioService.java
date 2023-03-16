@@ -1,13 +1,14 @@
 package com.hospital.citas_m.services;
 
-import com.hospital.citas_m.entities.Usuario;
+import com.hospital.citas_m.DTO.UsuarioDTO;
+import com.hospital.citas_m.entities.UsuarioEnt;
 
 import java.util.List;
 
 public interface UsuarioService {
-    List<Usuario> listaUsuarios();
-    Usuario usuarioByid(long id);
+    List<UsuarioDTO> listaUsuarios();
+    UsuarioDTO usuarioByid(Long id);
     void deleteUsuario(long id);
-    void saveUsuario(Usuario usuario);
+    UsuarioDTO saveUsuario(UsuarioEnt newUsuario);
 }
 
